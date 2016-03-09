@@ -3926,11 +3926,11 @@ a.subdued {
       background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%); }
   .bar.bar-stable {
     border-color: #b2b2b2;
-    background-color: #f8f8f8;
+    background-color: dodgerblue;
     background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
-    color: #444; }
+    color: white; }
     .bar.bar-stable .title {
-      color: #444; }
+      color: white; }
     .bar.bar-stable.bar-footer {
       background-image: linear-gradient(180deg, #b2b2b2, #b2b2b2 50%, transparent 50%); }
   .bar.bar-positive {
@@ -4044,7 +4044,9 @@ a.subdued {
       padding-right: 2px;
       padding-left: 2px;
       font-weight: 300;
-      font-size: 17px; }
+      font-size: 17px;
+      color: white;
+    }
       .bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before, .bar button.button-clear .icon:before, .bar button.button-clear.icon:before, .bar button.button-clear.icon-left:before, .bar button.button-clear.icon-right:before {
         font-size: 32px;
         line-height: 32px; }
