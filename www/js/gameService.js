@@ -28,7 +28,18 @@
         self.authWithPassword = authWithPassword;
         self.leaderboard = leaderboard;
         self.showError = showError;
-
+        self.imgArray = [
+          {'pink': '../img/hotpinkdonut.png', 'theone': true},
+          {'blue': '../img/bluedonut.png'},
+          {'green': '../img/greendonut.png'},
+          {'lightblue': '../img/lightblue.png'},
+          {'orange': '../img/orangedonut.png'},
+          {'white': '../img/whitedonut.png'},
+          {'yellow': '../img/yellowdonut.png'},
+          {'chocolate': '../img/chocolatedonut.png'},
+          {'black': '../img/blackdonut.png'},
+          {'lightpink': '../img/lightpinkdonut.png'}
+        ];
         for (var i = 1; i < 1000; i++) {
             self.upgrades.push({id: i, goal: self.goal});
             self.goal = self.goal * 2;
