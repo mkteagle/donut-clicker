@@ -140,14 +140,10 @@
   font-size: 12px;
 }
 .donut {
-  width: 5%;
-  height: 5%;
-  transition: -webkit-transform 0.25s ease;
+  kit-transform: 0.25s ease;
   cursor: pointer;
 }
 .donut:active {
-  width: 5%;
-  height: 5%;
   -webkit-transform: scale(2);
 }
 .textsize {
@@ -199,6 +195,6 @@ progress::-webkit-progress-value {
   100% {background-position: -100px 0px, 0 0, 0 0}
 }
 .smalldonut {
-  width: 5%;
-  height: 5%;
+  width: 49.2px;
+  height: 49.2px;
 }

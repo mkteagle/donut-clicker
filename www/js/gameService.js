@@ -3,10 +3,10 @@
     angular.module('gameService', [])
         .service('gameService', gameService);
 
-    gameService.$inject = ['ngToast', '$firebaseAuth', '$firebaseObject', '$timeout', '$state', '$ionicHistory', 'firebaseUrl', '$ionicSideMenuDelegate'];
+    gameService.$inject = ['ngToast', '$firebaseAuth', '$firebaseObject', '$timeout', '$state', '$ionicHistory', 'firebaseUrl', '$ionicSideMenuDelegate', '$filter', '$interval'];
 
 
-    function gameService(ngToast, $firebaseAuth, $firebaseObject, $timeout, $state, $ionicHistory, firebaseUrl, $ionicSideMenuDelegate) {
+    function gameService(ngToast, $firebaseAuth, $firebaseObject, $timeout, $state, $ionicHistory, firebaseUrl, $ionicSideMenuDelegate, $filter, $interval) {
         var self = this;
         var ref = new Firebase(firebaseUrl);
         self.authObj = $firebaseAuth(ref);
@@ -29,16 +29,16 @@
         self.leaderboard = leaderboard;
         self.showError = showError;
         self.imgArray = [
-          {'pink': '../img/hotpinkdonut.png', 'theone': true},
-          {'blue': '../img/bluedonut.png'},
-          {'green': '../img/greendonut.png'},
-          {'lightblue': '../img/lightblue.png'},
-          {'orange': '../img/orangedonut.png'},
-          {'white': '../img/whitedonut.png'},
-          {'yellow': '../img/yellowdonut.png'},
-          {'chocolate': '../img/chocolatedonut.png'},
-          {'black': '../img/blackdonut.png'},
-          {'lightpink': '../img/lightpinkdonut.png'}
+          {'img': '../www/img/hotpinkdonut.png', 'enabled': true},
+          {'img': '../www/img/bluedonut.png', 'enabled': false},
+          {'img': '../www/img/greendonut.png', 'enabled': false},
+          {'img': '../www/img/lightbluedonut.png', 'enabled': false},
+          {'img': '../www/img/orangedonut.png', 'enabled': false},
+          {'img': '../www/img/whitedonut.png', 'enabled': false},
+          {'img': '../www/img/yellowdonut.png', 'enabled': false},
+          {'img': '../www/img/chocolatedonut.png', 'enabled': false},
+          {'img': '../www/img/blackdonut.png', 'enabled': false},
+          {'img': '../www/img/lightpinkdonut.png', 'enabled': false}
         ];
         for (var i = 1; i < 1000; i++) {
             self.upgrades.push({id: i, goal: self.goal});
@@ -55,8 +55,13 @@
             cost: 100,
             gcost: 1000
         };
+      self.shuffleArray = shuffleArray;
+      self.shuffledArray = [];
         self.init = init;
         init();
+        function shuffleArray () {
+          self.shuffledArray = $filter('shuffle')(self.imgArray);
+        }
         function showError(error) {
             ngToast.create({
                 className: 'failure',
@@ -85,6 +90,7 @@
 
         }
         function init() {
+          self.shuffleArray();
             self.authObj.$onAuth(function (authData) {
                 if (self.authObj.$getAuth()) {
                     self.id = authData.uid;
@@ -276,6 +282,11 @@
             });
 
         }
+      $interval(function(){
+        $timeout(function() {
+          self.shuffleArray();
+        })
+      }, 20000)
     }
 
 })();

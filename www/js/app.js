@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'app.ctrl', 'ngToast', 'app.login', 'firebase', 'gameService', 'gameController', 'upgradeDirective', 'nameFilters', 'angular-toArrayFilter'])
+angular.module('starter', ['ionic', 'starter.controllers', 'app.ctrl', 'ngToast', 'app.login', 'firebase', 'gameService', 'gameController', 'upgradeDirective', 'nameFilters', 'angular-toArrayFilter', 'shuffleModule'])
   .constant('firebaseUrl', "https://donutclick2.firebaseio.com/")
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('ShuffleModule', [])
+  angular.module('shuffleModule', [])
     .filter('shuffle', function() {
       var shuffledArr = [],
         shuffledLength = 0;

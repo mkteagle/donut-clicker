@@ -16,9 +16,9 @@
         <progress id="progressbar" max="{{gc.selected.goal}}" value="{{ gc.selected.goal - gc.selected.countdown }}"></progress>
         <div id="progressbarlabel"></div>
         <div class="main-container">
-          <img class="smalldonut" ng-src="img/greendonut.png">
-            <img class="donut" ng-click="hc.showToast(); gc.incrementCounter(); gc.incrementCountdown()"
-                 ng-src="img/Donut.png" ng-click="createFirework(85,62,2,4,50,45,50,43,false,true);">
+          <div ng-repeat="image in gc.gameService.shuffledArray" ng-class="{donut: image.enabled}">
+            <button ng-disabled="image.enabled === false" ng-click="!image.enabled || gc.showToast(); gc.incrementCounter(); gc.incrementCountdown(); createFirework(85,62,2,4,50,45,50,43,false,true)" ng-model="imagine"><img class="smalldonut" ng-src="{{image.img}}"/></button>
+        </div>
         </div>
         <div class="toptobottom">
             <div class="row">
